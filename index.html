@@ -54,9 +54,9 @@
 </head>
 <body>
 <div class="container">
-  <div class="login-heading">   Log In</div> <!-- Added spaces before Log In -->
-  <div class="form-box">
-    <form>
+  <div class="login-heading">Log In</div> <!-- Added spaces before Log In -->
+  <div class="form-box login-form">
+    <form id="loginForm">
       <input type="text" placeholder="Gmail">
       <br>
       <input type="password" placeholder="Password">
@@ -68,7 +68,59 @@
       <input type="submit" value="Login" style="width: 100%; padding: 10px; background-color: magenta; color: white; border: none; border-radius: 5px; cursor: pointer;">
     </form>
   </div>
-  <div class="forgot-password"><a href="#">Forgot Password?</a></div>
+  <div class="forgot-password"><a href="#" id="signupLink">Don't Have an account? Sign Up</a></div>
 </div>
+
+<div class="container" style="display: none;" id="signupContainer">
+  <div class="login-heading">Sign Up</div>
+  <div class="form-box signup-form">
+    <form id="signupForm">
+      <input type="text" placeholder="Name">
+      <br>
+      <input type="text" placeholder="New E-mail">
+      <br>
+      <input type="password" placeholder="Password (min 8 characters, uppercase, special symbol, number)">
+      <br>
+      <input type="password" placeholder="Confirm Password">
+      <br>
+      <input type="checkbox" id="male"><label for="male">Male</label>
+      <input type="checkbox" id="female"><label for="female">Female</label>
+      <br>
+      <select name="birthday">
+        <option value="day">Day</option>
+        <!-- Add more options for days -->
+      </select>
+      <select name="birthday">
+        <option value="month">Month</option>
+        <!-- Add more options for months -->
+      </select>
+      <select name="birthday">
+        <option value="year">Year</option>
+        <!-- Add more options for years -->
+      </select>
+      <br>
+      <input type="submit" value="Sign Up" style="width: 100%; padding: 10px; background-color: magenta; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    </form>
+  </div>
+  <div class="forgot-password"><a href="#" id="loginLink">Already have an account? Log In</a></div>
+</div>
+
+<script>
+  const signupLink = document.getElementById("signupLink");
+  const loginLink = document.getElementById("loginLink");
+  const signupContainer = document.getElementById("signupContainer");
+  const loginForm = document.getElementById("loginForm");
+  const signupForm = document.getElementById("signupForm");
+
+  signupLink.addEventListener("click", () => {
+    document.querySelector(".login-form").style.display = "none";
+    signupContainer.style.display = "block";
+  });
+
+  loginLink.addEventListener("click", () => {
+    document.querySelector(".login-form").style.display = "block";
+    signupContainer.style.display = "none";
+  });
+</script>
 </body>
 </html>
