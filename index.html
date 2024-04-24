@@ -12,12 +12,8 @@
   }
   .container {
     width: 400px;
-    margin: 100px auto; /* Center the container horizontally */
+    margin: 100px auto;
     text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
   .login-heading {
     font-weight: bold;
@@ -31,7 +27,7 @@
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
-  .form-box input, .form-box select {
+  .form-box input {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -57,22 +53,25 @@
 </style>
 </head>
 <body>
-<div class="container" id="loginSignupContainer">
-  <div class="login-heading">Log In</div>
+<div class="container">
+  <div class="login-heading">Log In</div> <!-- Added spaces before Log In -->
   <div class="form-box login-form">
     <form id="loginForm">
       <input type="text" placeholder="Gmail">
       <br>
       <input type="password" placeholder="Password">
       <br>
-      <input type="submit" value="Log In" style="width: 100%; padding: 10px; background-color: magenta; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      <div style="display: flex; align-items: center;">
+        <input type="checkbox" id="remember"> <label for="remember" style="margin-left: 5px;">Remember Password</label>
+      </div>
+      <br>
+      <input type="submit" value="Login" style="width: 100%; padding: 10px; background-color: magenta; color: white; border: none; border-radius: 5px; cursor: pointer;">
     </form>
   </div>
-  <div class="forgot-password"><a href="#">Forgot Password?</a></div>
-  <div class="signup-link">Don't have an account? <a href="#" id="signupLink">Sign Up</a></div>
+  <div class="forgot-password"><a href="#" id="signupLink">Don't Have an account? Sign Up</a></div>
 </div>
 
-<div class="container" id="signupContainer" style="display: none;">
+<div class="container" style="display: none;" id="signupContainer">
   <div class="login-heading">Sign Up</div>
   <div class="form-box signup-form">
     <form id="signupForm">
@@ -84,6 +83,22 @@
       <br>
       <input type="password" placeholder="Confirm Password">
       <br>
+      <input type="checkbox" id="male"><label for="male">Male</label>
+      <input type="checkbox" id="female"><label for="female">Female</label>
+      <br>
+      <select name="birthday">
+        <option value="day">Day</option>
+        <!-- Add more options for days -->
+      </select>
+      <select name="birthday">
+        <option value="month">Month</option>
+        <!-- Add more options for months -->
+      </select>
+      <select name="birthday">
+        <option value="year">Year</option>
+        <!-- Add more options for years -->
+      </select>
+      <br>
       <input type="submit" value="Sign Up" style="width: 100%; padding: 10px; background-color: magenta; color: white; border: none; border-radius: 5px; cursor: pointer;">
     </form>
   </div>
@@ -91,19 +106,20 @@
 </div>
 
 <script>
-  const loginLink = document.getElementById("loginLink");
   const signupLink = document.getElementById("signupLink");
-  const loginContainer = document.getElementById("loginContainer");
+  const loginLink = document.getElementById("loginLink");
   const signupContainer = document.getElementById("signupContainer");
-
-  loginLink.addEventListener("click", () => {
-    signupContainer.style.display = "none";
-    loginContainer.style.display = "block";
-  });
+  const loginForm = document.getElementById("loginForm");
+  const signupForm = document.getElementById("signupForm");
 
   signupLink.addEventListener("click", () => {
-    loginContainer.style.display = "none";
+    document.querySelector(".login-form").style.display = "none";
     signupContainer.style.display = "block";
+  });
+
+  loginLink.addEventListener("click", () => {
+    document.querySelector(".login-form").style.display = "block";
+    signupContainer.style.display = "none";
   });
 </script>
 </body>
