@@ -3,26 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login</title>
+<title>Log In</title>
 <style>
   body {
-    font-family: "Times New Roman", Times, serif;
-    background-image: url('https://raw.githubusercontent.com/Peterson-Arkin-De-Leon/Index.html/main/Trtr.jpg'); /* Replace 'background_image.jpg' with the path to your image */
+    font-family: Arial, sans-serif;
+    background-image: url('path/to/your/background/image.jpg');
     background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
   }
   .container {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     margin: 100px auto;
     text-align: center;
+    color: white;
   }
   .login-heading {
     font-weight: bold;
-    font-size: 36px; /* Increased font size */
+    font-size: 36px;
     color: magenta;
-    margin-bottom: 30px; /* Added space */
+    margin-bottom: 30px;
   }
   .form-box {
-    background-color: purple;
+    background-color: magenta;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -40,11 +45,6 @@
     margin-right: 5px;
     vertical-align: middle;
   }
-  .form-box label {
-    display: inline-block;
-    vertical-align: middle;
-    color: white;
-  }
   .forgot-password {
     margin-top: 20px;
     font-size: 14px;
@@ -53,42 +53,20 @@
 </style>
 </head>
 <body>
-<div class="container" style="display: none;">
-  <div class="login-heading">Log In</div> <!-- Added spaces before Log In -->
-  <div class="form-box login-form">
+<div class="container">
+  <div class="login-heading">Log In</div>
+  <div class="form-box">
     <form id="loginForm">
-      <input type="text" placeholder="Gmail">
+      <input type="email" id="email" placeholder="Email">
       <br>
-      <input type="password" placeholder="Password">
+      <input type="password" id="password" placeholder="Password">
       <br>
-      <div style="display: flex; align-items: center;">
-        <input type="checkbox" id="remember"> <label for="remember" style="margin-left: 5px;">Remember Password</label>
-      </div>
+      <input type="checkbox" id="remember"> <label for="remember">Remember Password</label>
       <br>
-      <input type="submit" value="Login" style="width: 100%; padding: 10px; background-color: magenta; color: white; border: none; border-radius: 5px; cursor: pointer;">
-      <br>
+      <input type="submit" value="Login" style="width: 100%; padding: 10px; background-color: white; color: magenta; border: none; border-radius: 5px; cursor: pointer;">
     </form>
-     <div class="forgot-password"> <a href="#">Forgot Password?</a></div>
   </div>
+  <div class="forgot-password"><a href="#">Forgot Password?</a></div>
 </div>
-
-
-
-<script>
-
-  const loginLink = document.getElementById("loginLink");
-  const loginForm = document.getElementById("loginForm");
-  
-
-  signupLink.addEventListener("click", () => {
-    document.querySelector(".login-form").style.display = "none";
-    signupContainer.style.display = "block";
-  });
-
-  loginLink.addEventListener("click", () => {
-    document.querySelector(".login-form").style.display = "none";
-    signupContainer.style.display = "block";
-  });
-</script>
 </body>
 </html>
