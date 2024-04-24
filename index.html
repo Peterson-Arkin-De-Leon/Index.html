@@ -57,7 +57,22 @@
 </style>
 </head>
 <body>
-<div class="container" id="signupContainer">
+<div class="container" id="loginSignupContainer">
+  <div class="login-heading">Log In</div>
+  <div class="form-box login-form">
+    <form id="loginForm">
+      <input type="text" placeholder="Gmail">
+      <br>
+      <input type="password" placeholder="Password">
+      <br>
+      <input type="submit" value="Log In" style="width: 100%; padding: 10px; background-color: magenta; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    </form>
+  </div>
+  <div class="forgot-password"><a href="#">Forgot Password?</a></div>
+  <div class="signup-link">Don't have an account? <a href="#" id="signupLink">Sign Up</a></div>
+</div>
+
+<div class="container" id="signupContainer" style="display: none;">
   <div class="login-heading">Sign Up</div>
   <div class="form-box signup-form">
     <form id="signupForm">
@@ -69,8 +84,36 @@
       <br>
       <input type="password" placeholder="Confirm Password">
       <br>
-
-     
+      Gender:
+      <input type="radio" id="male" name="gender" value="male"><label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female"><label for="female">Female</label>
+      <br>
+      Birthday:
+      <select name="day">
+        <option value="">Day</option>
+        <!-- Adding days from 1 to 31 -->
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <!-- Continue adding options for days -->
+        <option value="31">31</option>
+      </select>
+      <select name="month">
+        <option value="">Month</option>
+        <!-- Adding months from Jan to Dec -->
+        <option value="Jan">Jan</option>
+        <option value="Feb">Feb</option>
+        <!-- Continue adding options for months -->
+        <option value="Dec">Dec</option>
+      </select>
+      <select name="year">
+        <option value="">Year</option>
+        <!-- Adding years from 1960 to 2024 -->
+        <option value="1960">1960</option>
+        <option value="1961">1961</option>
+        <!-- Continue adding options for years -->
+        <option value="2024">2024</option>
+      </select>
+      <br>
       <input type="submit" value="Sign Up" style="width: 100%; padding: 10px; background-color: magenta; color: white; border: none; border-radius: 5px; cursor: pointer;">
     </form>
   </div>
@@ -79,10 +122,18 @@
 
 <script>
   const loginLink = document.getElementById("loginLink");
+  const signupLink = document.getElementById("signupLink");
+  const loginContainer = document.getElementById("loginContainer");
   const signupContainer = document.getElementById("signupContainer");
 
   loginLink.addEventListener("click", () => {
     signupContainer.style.display = "none";
+    loginContainer.style.display = "block";
+  });
+
+  signupLink.addEventListener("click", () => {
+    loginContainer.style.display = "none";
+    signupContainer.style.display = "block";
   });
 </script>
 </body>
